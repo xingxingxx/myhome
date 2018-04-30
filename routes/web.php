@@ -10,11 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'IndexController@index');
+    Route::get('create', 'IndexController@create')->name('create');
+    Route::post('store', 'IndexController@store')->name('store');
+    Route::get('edit/{id}', 'IndexController@edit')->name('edit');
+    Route::put('update/{id}', 'IndexController@update')->name('update');
+    Route::get('delete/{id}', 'IndexController@delete')->name('delete');
+
+    Route::post('import', 'IndexController@import')->name('import');
+    Route::get('import-view', 'IndexController@importView')->name('importView');
+});
+
+
