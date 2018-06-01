@@ -26,7 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['domain' => config('app.domain.pwd')], function () {
-        Route::get('/', 'PasswordController@edit');
+        Route::get('/', 'PasswordController@index');
+        Route::get('edit/{id}', 'PasswordController@edit')->name('password.edit');
         Route::put('update/{id}', 'PasswordController@update')->name('password.update');
     });
 });
