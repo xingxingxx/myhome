@@ -8,7 +8,7 @@
                     <div class="card-header">导入链接</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('import') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('bookmark.import') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                                 <label for="bookmark" class="col-md-4 col-form-label text-md-right">URL</label>

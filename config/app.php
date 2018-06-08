@@ -211,10 +211,4 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
 
     ],
-
-    'domain' => [
-        'home' => env('DOMAIN_HOME'),
-        'pwd'  => env('DOMAIN_PWD'),
-    ],
-
 ];

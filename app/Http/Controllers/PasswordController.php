@@ -24,6 +24,6 @@ class PasswordController extends Controller
         $password = Password::findOrFail($id);
         $password->content = $request->input('content');
         $password->save();
-        return redirect('/');
+        return redirect(route('password.index'));
     }
 }

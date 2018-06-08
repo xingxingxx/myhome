@@ -5,32 +5,39 @@ namespace App\Http\Controllers;
 use App\Link;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class BookMarkController extends Controller
 {
-    //
     public function index(Request $request)
     {
         $q = $request->q;
-        $links = Link::select()
-            ->when($q, function ($query) use ($q) {
-                $query->where('title', 'like', '%' . $q . '%');
-            })
+        $links = Link::when($q, function ($query) use ($q) {
+            $query->where('title', 'like', '%' . $q . '%');
+        })
             ->where('user_id', \Auth::user()->id)
             ->OrderBy('frequency', 'desc')
             ->OrderBy('created_at', 'desc')
-            ->paginate()
+            ->paginate(25)
             ->appends(['q' => $q]);
-        return view('index', compact('links', 'q'));
+        return view('bookmark.index', compact('links', 'q'));
     }
 
-    public function query()
+    public function query(Request $request)
     {
-
+        $q = $request->q;
+        $links = Link::when($q, function ($query) use ($q) {
+            $query->where('title', 'like', '%' . $q . '%');
+        })
+            ->where('user_id', \Auth::user()->id)
+            ->OrderBy('frequency', 'desc')
+            ->OrderBy('created_at', 'desc')
+            ->limit(15)
+            ->get(['id','title','url','icon']);
+        return response()->json($links);
     }
 
     public function create()
     {
-        return view('create');
+        return view('bookmark.create');
     }
 
     public function store(Request $request)
@@ -112,7 +119,7 @@ class IndexController extends Controller
     public function edit($id)
     {
         $link = Link::findOrFail($id);
-        return view('edit', compact('link'));
+        return view('bookmark.edit', compact('link'));
     }
 
     public function update($id, Request $request)
@@ -134,7 +141,7 @@ class IndexController extends Controller
 
     public function importView()
     {
-        return view('import');
+        return view('bookmark.import');
     }
 
     public function import(Request $request)

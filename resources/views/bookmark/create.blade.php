@@ -8,7 +8,7 @@
                 <div class="card-header">新增链接</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('store') }}">
+                    <form method="POST" action="{{ route('bookmark.store') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="url" class="col-md-4 col-form-label text-md-right">URL</label>

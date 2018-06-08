@@ -8,7 +8,7 @@
                     <div class="card-header">编辑链接</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('update',['id'=>$link->id]) }}">
+                        <form method="POST" action="{{ route('bookmark.update',['id'=>$link->id]) }}">
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
