@@ -13,9 +13,7 @@
                                 {{--<label for="description" class="col-md-1 col-form-label text-md-right">内容</label>--}}
 
                                 <div class="col-md-12">
-                                    <textarea id="description" rows="30" class="form-control" name="content">
-{{ $password->content }}
-                                    </textarea>
+                                    <textarea id="description" rows="30" class="form-control" name="content">{{ $password->content }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row mb-0">

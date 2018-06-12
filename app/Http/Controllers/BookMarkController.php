@@ -5,22 +5,26 @@ namespace App\Http\Controllers;
 use App\Link;
 use Illuminate\Http\Request;
 
+/**
+ * Class BookMarkController
+ * @package App\Http\Controllers
+ */
 class BookMarkController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Request $request)
     {
         $q = $request->q;
-        $links = Link::when($q, function ($query) use ($q) {
-            $query->where('title', 'like', '%' . $q . '%');
-        })
-            ->where('user_id', \Auth::user()->id)
-            ->OrderBy('frequency', 'desc')
-            ->OrderBy('created_at', 'desc')
-            ->paginate(25)
-            ->appends(['q' => $q]);
-        return view('bookmark.index', compact('links', 'q'));
+        return view('bookmark.index', compact('q'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function query(Request $request)
     {
         $q = $request->q;
@@ -28,18 +32,25 @@ class BookMarkController extends Controller
             $query->where('title', 'like', '%' . $q . '%');
         })
             ->where('user_id', \Auth::user()->id)
-            ->OrderBy('frequency', 'desc')
-            ->OrderBy('created_at', 'desc')
+            ->orderBy('frequency', 'desc')
+            ->orderBy('created_at', 'desc')
             ->limit(15)
             ->get(['id','title','url','icon']);
         return response()->json($links);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('bookmark.create');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
         $url = trim($request->url);
@@ -48,6 +59,10 @@ class BookMarkController extends Controller
         return redirect('/');
     }
 
+    /**
+     * @param $url
+     * @return array
+     */
     private function add($url)
     {
         $doc = new \DOMDocument();
@@ -92,6 +107,10 @@ class BookMarkController extends Controller
 
     }
 
+    /**
+     * @param $icon
+     * @return string
+     */
     private function getDefaultIcon($icon)
     {
         $curl = curl_init($icon);
@@ -116,12 +135,21 @@ class BookMarkController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $link = Link::findOrFail($id);
         return view('bookmark.edit', compact('link'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update($id, Request $request)
     {
         $link = Link::findOrFail($id);
@@ -133,17 +161,28 @@ class BookMarkController extends Controller
         return redirect('/');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function delete($id)
     {
         Link::destroy($id);
         return back();
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function importView()
     {
         return view('bookmark.import');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function import(Request $request)
     {
         $file = $request->file('bookmark');

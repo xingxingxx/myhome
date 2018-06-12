@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.18 on 2018-04-28 06:35:41.
+ * Generated for Laravel 5.6.18 on 2018-06-12 03:42:28.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -12440,6 +12440,34 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Chenhua\MarkdownEditor\Facades { 
+
+    class MarkdownEditor {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function upload()
+        {
+            return \Chenhua\MarkdownEditor\MarkdownEditor::upload();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function parse($markdownText)
+        {
+            return \Chenhua\MarkdownEditor\MarkdownEditor::parse($markdownText);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -14728,6 +14756,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class MarkdownEditor extends \Chenhua\MarkdownEditor\Facades\MarkdownEditor {}
  
 }
 

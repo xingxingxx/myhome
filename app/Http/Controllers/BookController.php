@@ -6,38 +6,96 @@ use App\Book;
 use App\BookBody;
 use Illuminate\Http\Request;
 
+/**
+ * Class BookController
+ * @package App\Http\Controllers
+ */
 class BookController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        $books = Book::paginate();
+        $books = Book::orderBy('created_at', 'desc')->paginate();
         return view('book.index', compact('books'));
     }
 
-    public function show($id)
+    /**
+     * @param $book_id
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($book_id, Request $request)
     {
-        $bookBody=BookBody::where('book_id',$id)->first();
-        return view('book.show',compact('bookBody'));
+        $book = Book::findOrFail($book_id);
+        $menus = BookBody::where('book_id', $book_id)->get(['id', 'title', 'book_id']);
+        $id = $request->id;
+        if ($id) {
+            $article = BookBody::findOrFail($id);
+        } else {
+            $article = BookBody::where('book_id', $book_id)->first();
+        }
+        return view('book.show', compact('book', 'menus', 'article'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
-
+        return view('book.create');
     }
 
-    public function store()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(Request $request)
     {
-
+        $book = new Book();
+        $book->title = $request->title;
+        $book->cover = $request->cover;
+        $book->description = $request->description;
+        $book->user_id = \Auth::user()->id;
+        $book->author = \Auth::user()->name;
+        $book->save();
+        return redirect(route('book.index'));
     }
 
-    public function edit()
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit($id)
     {
-
+        $book = Book::findOrFail($id);
+        return view('book.edit', compact('book'));
     }
 
-    public function update()
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update($id, Request $request)
     {
+        $book = Book::find($id);
+        $book->title = $request->title;
+        $book->cover = $request->cover;
+        $book->description = $request->description;
+        $book->save();
+        return redirect(route('book.index'));
+    }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function delete($id)
+    {
+        Book::destroy($id);
+        return redirect(route('book.index'));
     }
 
 }

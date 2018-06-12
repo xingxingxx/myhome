@@ -41,9 +41,7 @@
                                 <label for="description" class="col-md-2 col-form-label text-md-right">描述</label>
 
                                 <div class="col-md-8">
-                                    <textarea id="description" rows="10" class="form-control" name="description">
-{{ $link->description }}
-                                    </textarea>
+                                    <textarea id="description" rows="10" class="form-control" name="description">{{ $link->description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row mb-0">

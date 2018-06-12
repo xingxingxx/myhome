@@ -161,6 +161,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\HttpClientServiceProvider::class,
+        Chenhua\MarkdownEditor\MarkdownEditorServiceProvider::class,
+        SunnyShift\Uploader\UploaderServiceProvider::class,
     ],
 
     /*
@@ -209,6 +211,6 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-
+        'MarkdownEditor' => Chenhua\MarkdownEditor\Facades\MarkdownEditor::class,
     ],
 ];

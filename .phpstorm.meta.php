@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-04-28 06:36:14.
+    * Generated on 2018-06-12 03:42:17.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -39,7 +39,11 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'markdown-editor' => \Chenhua\MarkdownEditor\MarkdownEditor::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'SunnyShift\Uploader\Services\FileUpload' => \SunnyShift\Uploader\Services\FileUpload::class,
+        'SunnyShift\Uploader\UploaderManager' => \SunnyShift\Uploader\UploaderManager::class,
+        'SunnyShift\Uploader\Contracts\UploaderContract' => \SunnyShift\Uploader\Adapter\Local::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -141,6 +145,7 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
+        'httpClient' => \GuzzleHttp\Client::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
@@ -173,7 +178,11 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'markdown-editor' => \Chenhua\MarkdownEditor\MarkdownEditor::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'SunnyShift\Uploader\Services\FileUpload' => \SunnyShift\Uploader\Services\FileUpload::class,
+        'SunnyShift\Uploader\UploaderManager' => \SunnyShift\Uploader\UploaderManager::class,
+        'SunnyShift\Uploader\Contracts\UploaderContract' => \SunnyShift\Uploader\Adapter\Local::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -275,6 +284,7 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
+        'httpClient' => \GuzzleHttp\Client::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
@@ -307,7 +317,11 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'markdown-editor' => \Chenhua\MarkdownEditor\MarkdownEditor::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'SunnyShift\Uploader\Services\FileUpload' => \SunnyShift\Uploader\Services\FileUpload::class,
+        'SunnyShift\Uploader\UploaderManager' => \SunnyShift\Uploader\UploaderManager::class,
+        'SunnyShift\Uploader\Contracts\UploaderContract' => \SunnyShift\Uploader\Adapter\Local::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -409,6 +423,7 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
+        'httpClient' => \GuzzleHttp\Client::class,
     ]));
     override(\App::make(0), map([
         '' => '@',
@@ -441,7 +456,11 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'markdown-editor' => \Chenhua\MarkdownEditor\MarkdownEditor::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'SunnyShift\Uploader\Services\FileUpload' => \SunnyShift\Uploader\Services\FileUpload::class,
+        'SunnyShift\Uploader\UploaderManager' => \SunnyShift\Uploader\UploaderManager::class,
+        'SunnyShift\Uploader\Contracts\UploaderContract' => \SunnyShift\Uploader\Adapter\Local::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -543,6 +562,7 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
+        'httpClient' => \GuzzleHttp\Client::class,
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
@@ -575,7 +595,11 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'markdown-editor' => \Chenhua\MarkdownEditor\MarkdownEditor::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'SunnyShift\Uploader\Services\FileUpload' => \SunnyShift\Uploader\Services\FileUpload::class,
+        'SunnyShift\Uploader\UploaderManager' => \SunnyShift\Uploader\UploaderManager::class,
+        'SunnyShift\Uploader\Contracts\UploaderContract' => \SunnyShift\Uploader\Adapter\Local::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -677,6 +701,7 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
+        'httpClient' => \GuzzleHttp\Client::class,
     ]));
     override(\app(0), map([
         '' => '@',
@@ -709,7 +734,11 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'markdown-editor' => \Chenhua\MarkdownEditor\MarkdownEditor::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'SunnyShift\Uploader\Services\FileUpload' => \SunnyShift\Uploader\Services\FileUpload::class,
+        'SunnyShift\Uploader\UploaderManager' => \SunnyShift\Uploader\UploaderManager::class,
+        'SunnyShift\Uploader\Contracts\UploaderContract' => \SunnyShift\Uploader\Adapter\Local::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -811,6 +840,7 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
+        'httpClient' => \GuzzleHttp\Client::class,
     ]));
     override(\resolve(0), map([
         '' => '@',
@@ -843,7 +873,11 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
+        'markdown-editor' => \Chenhua\MarkdownEditor\MarkdownEditor::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'SunnyShift\Uploader\Services\FileUpload' => \SunnyShift\Uploader\Services\FileUpload::class,
+        'SunnyShift\Uploader\UploaderManager' => \SunnyShift\Uploader\UploaderManager::class,
+        'SunnyShift\Uploader\Contracts\UploaderContract' => \SunnyShift\Uploader\Adapter\Local::class,
         'Illuminate\Console\Scheduling\Schedule' => \Illuminate\Console\Scheduling\Schedule::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
@@ -945,6 +979,7 @@ namespace PHPSTORM_META {
         'command.tinker' => \Laravel\Tinker\Console\TinkerCommand::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
+        'httpClient' => \GuzzleHttp\Client::class,
     ]));
 
     override(\Illuminate\Support\Arr::add(0), type(0));
