@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_book')
 
 @section('content')
     <div class="container">
@@ -44,8 +44,7 @@
                 <div class="list-group">
                     <a style="color:#505050;" href="{{ route('book.index') }}"
                        class="list-group-item"><h5>{{ $book->title }}</h5></a>
-                    <a style="color:#505050;" href="{{ route('book.body.create',['book_id'=>$book->id]) }}"
-                       class="list-group-item">添加文章</a>
+
                     @foreach($menus as $menu)
                         <a href="{{ route('book.show',['book_id'=>$menu->book_id,'id'=>$menu->id]) }}"
                            style="color:#505050;"
